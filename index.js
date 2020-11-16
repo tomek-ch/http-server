@@ -41,7 +41,7 @@ function getContentType(ext) {
 async function serve(req, res) {
     const ext = path.extname(path.join(__dirname, 'public', req.url));
     const type = getContentType(ext || '.html');
-    const [ content, status ] = await getFile(req.url, ext).catch(err => handleError(err));
+    const [ content, status ] = await getFile(req.url, ext).catch(handleError);
 
     res.writeHead(status, { 'Content-Type': type });
     res.end(content);
