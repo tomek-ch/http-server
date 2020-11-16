@@ -47,4 +47,4 @@ async function serve(req, res) {
     res.end(content);
 }
 
-const server = http.createServer(serve).listen(8080);
+const server = http.createServer(serve).listen(process.env.PORT || 8080);
